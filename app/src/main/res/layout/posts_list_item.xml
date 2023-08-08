@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:clickable="true"
+    android:background="@drawable/clickable_item_of_list_background">
+
+    <TextView
+        android:id="@+id/postPreviewTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/postPreviewReactions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Some post title" />
+
+    <TextView
+        android:id="@+id/postPreviewTags"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/postPreviewReactions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postPreviewTitle"
+        tools:text="Tags: Some, post, tags" />
+
+    <TextView
+        android:id="@+id/postPreviewUserOrPostId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        tools:text="Author id: -1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postPreviewReactions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/clickFoReadPostText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postPreviewUserOrPostId"
+        tools:text="Reactions: 0" />
+
+    <TextView
+        android:id="@+id/clickFoReadPostText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:paddingBottom="10dp"
+        android:textStyle="italic"
+        android:text="@string/click_for_read"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

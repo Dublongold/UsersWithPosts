@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">UsersWithPosts</string>
+    <string name="click_for_details">Click for details</string>
+    <string name="user_image">User image</string>
+    <string name="load_more_users">Load more users</string>
+    <string name="user_age_in_brackets">(%d)</string>
+    <string name="user_first_last_maiden_name">%s %s %s</string>
+    <string name="user_profile_image_description">User image</string>
+    <string name="go_to_users_list_button_description">Go to users list</string>
+    <string name="users_list_title"><u>Users:</u></string>
+    <string name="users_found_list_title"><u>Users found:</u></string>
+    <!-- Profile fragment strings -->
+    <string name="user_profile_birth_date">Birth date:</string>
+    <string name="user_profile_gender">Gender:</string>
+    <string name="user_profile_email">Email:</string>
+    <string name="user_profile_phone">Phone:</string>
+    <string name="user_profile_address">Address:</string>
+    <string name="see_more_user_posts">See more user posts…</string>
+    <!-- Post strings -->
+    <string name="post_tags">Tags: %s</string>
+    <string name="post_reactions">Reactions: %d</string>
+    <string name="post_user_id">Author id: %d</string>
+    <string name="post_author">Author: %s%s</string>
+    <string name="post_author_id">" (id: %d)"</string>
+    <string name="post_id">Id: %d</string>
+    <string name="user_profile_posts"><u>User posts (%d):</u></string>
+    <string name="click_for_read">Click for read</string>
+    <!-- Posts list strings -->
+    <string name="posts_list_title"><u>Posts:</u></string>
+    <string name="posts_found_list_title"><u>Posts found:</u></string>
+    <!-- Other -->
+    <string name="go_back">Go back</string>
+    <string name="connection_lost_description">Internet connection is lost</string>
+    <string name="load_more_posts">Load more posts</string>
+</resources>
