@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 
 class UsersListRecyclerViewAdapter: ListAdapter<User?, UsersListViewHolder>(UsersListDiffUtilItemCallback()) {
     var goToProfileCallback: ((Int) -> Unit)? = null
-    var loadMorePostsCallback: (() -> Unit)? = null
+    var loadMoreUsersCallback: (() -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersListViewHolder {
         return UsersListViewHolder(
             if (viewType == 0) {
@@ -53,7 +53,7 @@ class UsersListRecyclerViewAdapter: ListAdapter<User?, UsersListViewHolder>(User
             else {
                 loadMoreUsersButton?.setOnClickListener {
                     Log.i("Load more products", "Try to load more products...")
-                    loadMorePostsCallback?.invoke()
+                    loadMoreUsersCallback?.invoke()
                 }
             }
         }

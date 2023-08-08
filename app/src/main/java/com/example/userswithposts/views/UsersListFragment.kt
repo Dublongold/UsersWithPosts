@@ -17,12 +17,13 @@ import com.example.userswithposts.R
 import com.example.userswithposts.recyclerViewAdapters.UsersListRecyclerViewAdapter
 import com.example.userswithposts.viewModels.UserListViewModel
 import com.example.userswithposts.widgetsElements.UserSearchQueryTextListener
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
+/**
+ * This fragment will display users (initially 30 users).
+ */
 class UsersListFragment: Fragment() {
-
     private val viewModel: UserListViewModel by inject()
 
     override fun onCreateView(
@@ -34,6 +35,7 @@ class UsersListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Create an adapter and assign callbacks to moving into profile and load new users.
         val usersListAdapter = UsersListRecyclerViewAdapter().apply {
             goToProfileCallback = {
                 viewModel.clearNetworkQueue()
@@ -41,18 +43,17 @@ class UsersListFragment: Fragment() {
                     .replace(R.id.mainContainer, ProfileFragment(it))
                     .commit()
             }
-            loadMorePostsCallback = {
+            loadMoreUsersCallback = {
                 if(viewModel.networkState.isAvailable.value) {
                     viewModel.loadMoreUsers()
                 }
             }
         }
-
+        // Find view by id and assign adapter and layoutManager to it.
         val usersList = view.findViewById<RecyclerView>(R.id.usersList).apply {
             adapter = usersListAdapter
             layoutManager = LinearLayoutManager(context)
         }
-
         viewModel.networkState.watchIsAvailableForConnectionLostIcon(
             lifecycleOwner = viewLifecycleOwner,
             view = view

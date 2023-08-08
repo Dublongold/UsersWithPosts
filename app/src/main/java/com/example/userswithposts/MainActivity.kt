@@ -21,6 +21,9 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
 class MainActivity : AppCompatActivity() {
+    /**
+     * This necessary for registerNetworkCallback
+     */
     private val networkRequest: NetworkRequest = NetworkRequest.Builder()
         .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
         .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Start koin and add dependencies.
         startKoin {
             androidLogger()
             androidContext(this@MainActivity)
@@ -43,13 +47,14 @@ class MainActivity : AppCompatActivity() {
                 single { RetrofitClient().client }
             })
         }
-
+        // Set back pressed callback as MainOnBackPressedCallback.
+        // supportFragmentManager need for moving between fragments.
         onBackPressedDispatcher.addCallback (MainOnBackPressedCallback(supportFragmentManager))
-
+        // Setting up my custom network callback to help monitor internet state.
         getSystemService(ConnectivityManager::class.java).registerNetworkCallback(
             networkRequest, MainNetworkCallback(this)
         )
-
+        // Start activity with UsersListFragment.
         supportFragmentManager.beginTransaction()
             .add(R.id.mainContainer, UsersListFragment())
             .commit()

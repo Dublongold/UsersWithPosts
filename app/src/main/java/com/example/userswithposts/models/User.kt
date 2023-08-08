@@ -2,6 +2,7 @@ package com.example.userswithposts.models
 
 import kotlinx.serialization.Serializable
 
+// Commented lines must be uncommented if ignoreUnknownKeys in Json is false.
 @Serializable
 data class User (
     val id: Int,
@@ -31,9 +32,7 @@ data class User (
 //    val ein: String?,
 //    val ssn: String?,
 //    val userAgent: String?
-) {
-    fun stringForSearch() = id.toString() + firstName + lastName + maidenName + age + gender + email + phone + username + birthDate + address
-}
+)
 
 /*
 {
